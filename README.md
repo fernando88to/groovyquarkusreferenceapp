@@ -15,3 +15,12 @@ You can run your application in dev mode that enables live coding using:
 ./gradlew quarkusDev
 ```
 
+### Cobertura
+
+Ao rodar o comando './gradlew test' irá executar os testes automatizados juntamente com a cobertura
+
+
+### Análise estática 
+
+Rodar o comando './gradlew check'
+

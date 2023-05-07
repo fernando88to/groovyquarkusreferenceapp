@@ -3,6 +3,7 @@ plugins {
     id 'io.quarkus'
     id 'groovy'
     id 'jacoco'//para os testes que não vão usar QuarkusTest
+    id 'codenarc'
 }
 
 repositories {
@@ -51,4 +52,16 @@ test {
         destinationFile = layout.buildDirectory.file("jacoco-quarkus.exec").get().asFile
     }
     jacocoTestReport.enabled = false
+}
+
+
+codenarc {
+    toolVersion = '3.2.0'
+    configFile = file("config/codenarc/codenarc.groovy")
+    reportFormat = 'html'
+    //ignoreFailures = true
+    maxPriority1Violations = 10
+    maxPriority2Violations = 20
+    maxPriority3Violations = 100
+
 }
