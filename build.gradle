@@ -3,7 +3,9 @@ plugins {
     id 'io.quarkus'
     id 'groovy'
     id 'jacoco'//para os testes que não vão usar QuarkusTest
-    id 'codenarc'
+    id 'codenarc'//analise estatica de  código groovy
+
+    id 'pmd'
 }
 
 repositories {
@@ -64,4 +66,11 @@ codenarc {
     maxPriority2Violations = 20
     maxPriority3Violations = 100
 
+}
+
+pmd {
+    //toolVersion = '6.39.0' // Use a versão do PMD que você deseja
+    sourceSets = [sourceSets.main] // Defina os conjuntos de código-fonte a serem analisados
+    ruleSetFiles = files("${project.rootDir}/config/pmd/ruleset.xml") // Use seu próprio arquivo de configuração de regras personalizado
+    ignoreFailures = false // Defina como 'true' se você deseja que o build continue mesmo que o PMD encontre problemas
 }

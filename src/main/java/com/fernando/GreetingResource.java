@@ -5,8 +5,10 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
+
+@SuppressWarnings("PMD.AtLeastOneConstructor")
 @Path("/hello")
-public class GreetingResource {
+public final class GreetingResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
